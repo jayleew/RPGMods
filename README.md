@@ -10,8 +10,19 @@ My Fork adds a number of config options to mastery and allows you to invert the 
 <summary>Experience System</summary>
 Disable the VRising Gear Level system and replace it with a traditional RPG experience system,\
 complete with exp sharing between clan members or other players designated as allies.
+Optional gear level adjustments to regain the pace of the game with the leveling system. Gear level is calculated as a percentage of the difference of your level vs the gear level of the equipment.
+Optional level up reward points tied to classes. Ability points are earned each level that can be spent on a class. 
+
+Classes can be configured via server config file experience_class_stats.json
+
+Sample:
+```json
+[
+"health":{"MaxHealth":0.5},"ppower":{"PhysicalPower":0.75},"spower":{"SpellPower":0.75},"manhunter":{"DamageVsHumans":0.0199999996,"ResistVsHumans":2}
+]
+
+Use stat type names like "MaxHealth" from the same stat names as for the mastery list below for StatIDs. For PhysicalResistance and SpellResistance it is a percentage. A value of 1 means 100% immune.
 </details>
-Now with a class system, currently undocumented.
 
 ## Mastery System
 <details>
@@ -358,6 +369,10 @@ Despawn the ambush squad after this many second if they are still alive. Ex.: -1
 
 - `Enable` [default `true`]\
 Enable/disable the Experience system.
+- `Allow Gear Level` [default `true`]\
+Enable/disable gear level adjustment for equipment equipped.
+- `Enable Level Rewards` [default `true`]\
+Enable rewards per level (currently just health) and class buffs.
 - `Max Level` [default `80`]\
 Configure the experience system max level..
 - `Multiplier` [default `1`]\
@@ -753,14 +768,30 @@ Display all players currently in siege mode, or engage siege mode.\
 <details>
 <summary>experience</summary>
 
-`experience [<log> <on>|<off>]`\
-Diplays your current exp and progression to the next level, or toggle the exp gain notification.\
+`experience [<log> <on>|<off>][<ability> [<ClassName>|<show}] [<PointsToSpend]`\
+Diplays your current exp and progression to the next level, spend earned ability points on a class, or toggle the exp gain notification.\
 &ensp;&ensp;**Example:** `experience`\
 &ensp;&ensp;**Example:** `experience log off`
+&ensp;&ensp;**Example:** `experience ability show``show current player class buffs`
+&ensp;&ensp;**Example:** `experience ability health 10``spend 10 points on health class` 
+
+&ensp;&ensp;**Class Buffs:** 
+&ensp;&ensp;&ensp;health
+&ensp;&ensp;&ensp;spower
+&ensp;&ensp;&ensp;ppower
+&ensp;&ensp;&ensp;presist
+&ensp;&ensp;&ensp;sresist
+&ensp;&ensp;&ensp;manhunter
+&ensp;&ensp;&ensp;demonhunter
+&ensp;&ensp;&ensp;undeadhunter
+&ensp;&ensp;&ensp;beasthunter
+&ensp;&ensp;&ensp;farmer
 
 &ensp;&ensp;**Special Params -> `[<set> <value> [<PlayerName>]]`** `Set your or the specified player experience value.`\
 &ensp;&ensp;**Example:** `experience set 1000`\
 &ensp;&ensp;**Example:** `experience set 2000 LegendaryVampire`
+&ensp;&ensp;**Special Params -> `[<ability> <reset>]`** `Reset all buffs and return ability points`\
+&ensp;&ensp;**Example:** `experience ability reset`\
 
 </details>
 
@@ -1005,7 +1036,8 @@ Notes:
 - `小爛土#7151` - Also known as Shou (like the english word show), Darkon47 on Github.
 If you enjoy the work I have put into this mod, subscribe to my patreon at https://www.patreon.com/user/membership?u=92238426
 
-- `SALTYFLEA#3772` Added the class system, currently otherwise undocumented.
+- `SALTYFLEA#3772` Added the "class" system. It is currently a subset of the experience system because it needs it.
+Could be tied down to player choice at the start of selection of a class, and expanded to control select skills into the classes. It is a work in progress not finalized the direction. 
 
 ### Original Developer
 - `Kaltharos#0001`
