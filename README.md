@@ -20,7 +20,7 @@ Sample:
 [
 "health":{"MaxHealth":0.5},"ppower":{"PhysicalPower":0.75},"spower":{"SpellPower":0.75},"manhunter":{"DamageVsHumans":0.0199999996,"ResistVsHumans":2}
 ]
-
+```
 Use stat type names like "MaxHealth" from the same stat names as for the mastery list below for StatIDs. For PhysicalResistance and SpellResistance it is a percentage. A value of 1 means 100% immune.
 </details>
 
