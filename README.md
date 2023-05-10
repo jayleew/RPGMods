@@ -9,9 +9,11 @@ My Fork adds a number of config options to mastery and allows you to invert the 
 <details>
 <summary>Experience System</summary>
 Disable the VRising Gear Level system and replace it with a traditional RPG experience system,\
-complete with exp sharing between clan members or other players designated as allies.
-Optional gear level adjustments to regain the pace of the game with the leveling system. Gear level is calculated as a percentage of the difference of your level vs the gear level of the equipment.
-Optional level up reward points tied to classes. Ability points are earned each level that can be spent on a class. 
+complete with exp sharing between clan members or other players designated as allies.<br/>
+<ul>
+    <li>Optional gear level adjustments to regain the pace of the game with the leveling system. Gear level is calculated as a percentage of the difference of your level vs the gear level of the equipment.</li>
+    <li>Optional level up reward points tied to classes. Ability points are earned each level that can be spent on a class. </li>
+</ul>
 
 Classes can be configured via server config file experience_class_stats.json
 
